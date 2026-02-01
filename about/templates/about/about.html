@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- First div - 1/3 width -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <img src="{% static 'images/nobody.jpg' %}">
+                </div>
+            </div>
+        </div>
+
+        <!-- Second div - 2/3 width -->
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{ about.title }}</h5>
+                    <p class="card-text">{{ about.content | safe }}</p>
+                    <p class="small text-muted">Last updated on {{ about.updated_on }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
