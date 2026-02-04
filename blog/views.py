@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic
-from .models import Post, Comment
-from .forms import CommentForm
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from .models import Post, Comment
+from .forms import CommentForm
+
 # Create your views here.
 
 
@@ -31,7 +32,7 @@ def post_detail(request, slug):
     post = get_object_or_404(queryset, slug=slug)
     comments = post.comments.all().order_by("-created_on")
     comment_count = post.comments.filter(approved=True).count()
-    
+  
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():

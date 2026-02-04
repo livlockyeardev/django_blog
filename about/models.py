@@ -3,6 +3,10 @@ from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
+"""
+Model representing the About page content.
+"""
+
 
 class About(models.Model):
     title = models.CharField(max_length=200)
@@ -12,6 +16,10 @@ class About(models.Model):
 
     def __str__(self):
         return self.title
+
+
+"""Model representing a collaboration request submitted
+"""
 
 
 class CollaborateRequest(models.Model):

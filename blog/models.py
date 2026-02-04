@@ -4,7 +4,14 @@ from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
+
 # Create your models here.
+"""
+
+Model representing a blog post ordered chronologically. 
+Linked to model.auth.User.
+
+"""
 class Post(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -23,6 +30,12 @@ class Post(models.Model):
 
     def __str__(self):
         return f"{self.title} | Written by {self.author}"
+    
+
+"""
+Model representing a comment on a blog post ordered chronologically, linked 
+to model.auth.User and model.blog.Post.
+"""
 
 
 class Comment(models.Model):

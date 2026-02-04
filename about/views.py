@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
+from django.contrib import messages
 from .models import About
 from .forms import CollaborateForm
-from django.contrib import messages
 # Create your views here.
 
 
@@ -29,7 +29,7 @@ def about(request):
             collaborate_form.save()
             messages.add_message(
                 request, messages.SUCCESS,
-                'Request for collaboration submitted successfully'
+                'Potato'
             )
     collaborate_form = CollaborateForm()
 
